@@ -1,3 +1,24 @@
+# HPDIC MOD
+
+## Setup on Chameleon TACC P100
+
+```
+git clone git@github.com:hpdic/PFLlib.git
+conda create -n fl python=3.8
+conda activate fl
+conda install --yes -c pytorch pytorch=1.7.1 torchvision cudatoolkit=11.0
+conda install numpy ujson scikit-learn h5py matplotlib 
+pip install cvxpy calmsize
+```
+
+## Hello World
+```
+cd ~/PFLlib/dataset
+python generate_MNIST.py noniid - dir 
+cd ~/PFLlib/system
+python main.py -data MNIST -m CNN -algo FedAvg -gr 5 -did 0
+```
+
 # PFLlib: Personalized Federated Learning Library
 
 👏 **We will change the license to Apache-2.0 in the next release.**
