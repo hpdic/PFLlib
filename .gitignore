@@ -1,1 +1,6 @@
+results
+system/models
+dataset/Cifar10
+dataset/FashionMNIST
+
 *__pycache__*

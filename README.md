@@ -6,17 +6,21 @@
 git clone git@github.com:hpdic/PFLlib.git
 conda create -n fl python=3.8
 conda activate fl
-conda install --yes -c pytorch pytorch=1.7.1 torchvision cudatoolkit=11.0
-conda install numpy ujson scikit-learn h5py matplotlib 
+conda install --yes -c pytorch pytorch=1.7.1 torchvision torchtext cudatoolkit=11.0
+conda install --yes numpy ujson scikit-learn h5py matplotlib 
 pip install cvxpy calmsize
 ```
 
 ## Hello World
 ```
 cd ~/PFLlib/dataset
-python generate_MNIST.py noniid - dir 
+python generate_Cifar10.py noniid balance dir # for practical noniid and balanced scenario
+python generate_FashionMNIST.py noniid - dir # for practical noniid and unbalanced scenario
+
 cd ~/PFLlib/system
 python main.py -data MNIST -m CNN -algo FedAvg -gr 5 -did 0
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 5 -did 0
+python main.py -data FashionMNIST -m CNN -algo FedAvg -gr 5 -did 0
 ```
 
 # PFLlib: Personalized Federated Learning Library
