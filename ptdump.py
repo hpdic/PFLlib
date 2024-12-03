@@ -35,7 +35,7 @@ def print_structure(data, indent=0):
     else:
         print(f"{spacing}{type(data)}: {data}")
 
-def extract_flattened_weights(pt_file_path):
+def extract_flattened_weights(pt_file_path, output_dir="results"):
     """
     从 .pt 文件中提取所有权重，并将它们展平为一个大的 NumPy 数组。
 
@@ -65,6 +65,17 @@ def extract_flattened_weights(pt_file_path):
 
         # 合并为一个大数组
         flattened_weights = np.concatenate(weights_list)
+
+        # Prepare output file path
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        base_name = os.path.splitext(os.path.basename(os.path.dirname(pt_file_path)))[0]
+        output_file_path = os.path.join(output_dir, f"{base_name}_numpy.npy")
+
+        # Save to file
+        np.save(output_file_path, flattened_weights)
+        print(f"Numpy array saved to: {output_file_path}")        
+
         print(f"Extracted flattened weights with shape: {flattened_weights.shape}")
         return flattened_weights
 
