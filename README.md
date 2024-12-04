@@ -1,7 +1,6 @@
 # HPDIC MOD
 
 ## Setup on Chameleon TACC P100
-
 ```
 cd
 git clone git@github.com:hpdic/PFLlib.git
@@ -30,6 +29,27 @@ cd ~/PFLlib
 python ptdump.py system/models/MNIST/FedAvg_server.pt
 python ptdump.py system/models/Cifar10/FedAvg_server.pt
 python ptdump.py system/models/FashionMNIST/FedAvg_server.pt
+```
+
+## Setup OpenFHE
+```
+cd
+git clone git@github.com:hpdic/openfhe-development.git
+sudo apt-get install cmake
+sudo apt-get install clang
+sudo apt-get install libomp5
+sudo apt-get install libomp-dev
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+cd openfhe-development/
+mkdir build
+cd build
+cmake ..
+sudo apt-get install autoconf
+make -j 48
+sudo make install
+make testall -j 48
+bin/examples/pke/simple-integers
 ```
 
 # PFLlib: Personalized Federated Learning Library
