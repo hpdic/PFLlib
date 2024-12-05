@@ -52,6 +52,20 @@ make testall -j 48
 bin/examples/pke/simple-integers
 ```
 
+## Load Numpy arrays
+```
+cd 
+git@github.com:hpdic/cnpy.git
+cd cnpy
+mkdir build
+cd build
+cmake ..
+make -j 48
+sudo make install
+cd ~/openfhe-development/build
+bin/examples/pke/hpdic_nemesis
+```
+
 # PFLlib: Personalized Federated Learning Library
 
 👏 **We will change the license to Apache-2.0 in the next release.**

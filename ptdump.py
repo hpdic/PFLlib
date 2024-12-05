@@ -70,7 +70,7 @@ def extract_flattened_weights(pt_file_path, output_dir="results"):
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
         base_name = os.path.splitext(os.path.basename(os.path.dirname(pt_file_path)))[0]
-        output_file_path = os.path.join(output_dir, f"{base_name}_numpy.npy")
+        output_file_path = os.path.join(output_dir, f"numpy_{base_name}.npy")
 
         # Save to file
         np.save(output_file_path, flattened_weights)
