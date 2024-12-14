@@ -47,7 +47,6 @@ cd build
 cmake ..
 sudo apt-get install autoconf
 make -j 48
-sudo make install
 make testall -j 48
 bin/examples/pke/simple-integers
 ```
@@ -63,6 +62,14 @@ cmake ..
 make -j 48
 sudo make install
 cd ~/openfhe-development/build
+bin/examples/pke/hpdic_nemesis
+```
+
+## Nemesis development
+```
+# After make changes to ~/openfhe-development/src/pke/examples/hpdic_nemesis.cpp
+cd ~/openfhe-development/build
+make -j 48
 bin/examples/pke/hpdic_nemesis
 ```
 
